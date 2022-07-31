@@ -173,7 +173,7 @@ const CoffeePage = () => {
                         </CoffeeCard>
                     </Col>
                 </Row>
-            </Container >
+            </Container>
         </>
     );
 }
