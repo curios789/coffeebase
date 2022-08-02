@@ -1,6 +1,7 @@
 import { Row } from '../../components/grid';
 import { useSelector } from 'react-redux';
 import { selectAllCoffees } from './coffeeSlice';
+import { selectCoffeeByRegion } from './coffeeSlice';
 import CoffeeCard from './coffeeCard';
 const CoffeeList = ({ type }) => {
     const coffees = useSelector(selectAllCoffees);

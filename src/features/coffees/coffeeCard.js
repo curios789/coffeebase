@@ -1,9 +1,18 @@
 import { Link } from "react-router-dom";
 import { Row, Col } from "../../components/grid";
-import { CoffeeDetailCard, CoffeeAttribute } from "../../components/coffeeCardStyle";
+import { CoffeeDetailCard, CoffeeAttribute, CoffeeCardFooter } from "../../components/coffeeCardStyle";
+import { faCommentDots, faStar, faStarHalf } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+function ratingFunction(rating) {
+    let stars = [];
+    for (let i = 0; i < rating; i++) {
+        stars.push(<FontAwesomeIcon icon={faStar} style={{ color: 'orange' }} />);
+    }
+    return stars;
+}
 
-const CoffeeCard = ({ coffee: { id, name, description, region, acidity, body, flavor } }) => {
+const CoffeeCard = ({ coffee: { id, name, description, region, acidity, body, flavor, rating } }) => {
     return (
         <CoffeeDetailCard>
             <Row className="header">
@@ -13,6 +22,7 @@ const CoffeeCard = ({ coffee: { id, name, description, region, acidity, body, fl
             </Row>
             <Row className="content">
                 <Col md="6">
+                    <h3>Coffee Attributes</h3>
                     <ul>
                         <CoffeeAttribute region={region.replaceAll(' ', '-').toLowerCase()}>Region: {region}</CoffeeAttribute>
                         <CoffeeAttribute> Body: {body}</CoffeeAttribute>
@@ -29,11 +39,11 @@ const CoffeeCard = ({ coffee: { id, name, description, region, acidity, body, fl
             <Row>
                 <p>{description}</p>
             </Row>
-            <Row>
-                <Col md='4'>Star Reviews</Col>
-                <Col md='4'>Comment Number</Col>
+            <CoffeeCardFooter>
+                <Col md='4'>{ratingFunction(rating)}</Col>
+                <Col md='4'><FontAwesomeIcon icon={faCommentDots} /> Comment Number</Col>
                 <Col md='4'><Link to={`${id}`}><button>View Coffee</button></Link></Col>
-            </Row>
+            </CoffeeCardFooter>
         </CoffeeDetailCard>
     )
 };
