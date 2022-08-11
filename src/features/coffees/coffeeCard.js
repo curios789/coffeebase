@@ -14,7 +14,7 @@ function ratingFunction(rating) {
 
 const CoffeeCard = ({ coffee: { id, name, description, region, acidity, body, flavor, rating } }) => {
     return (
-        <CoffeeDetailCard>
+        <CoffeeDetailCard key={id}>
             <Row className="header">
                 <Col>
                     <h2>{name}</h2>

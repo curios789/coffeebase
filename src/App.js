@@ -8,12 +8,17 @@ import ShopPage from './pages/shopPage';
 import HomePage from './pages/homePage';
 import CoffeePage from './pages/coffeePage';
 import CoffeeDetailPage from './pages/coffeeDetailPage';
+import ShopDetailPage from './pages/shopDetailPage';
 import { fetchCoffees } from './features/coffees/coffeeSlice';
+import { fetchShops } from './features/shops/shopSlice';
+import { fetchComments } from './features/comments/commentSlice';
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchCoffees());
-  });
+    dispatch(fetchShops());
+    dispatch(fetchComments());
+  }, [dispatch]);
   return (
     <div className="App">
       <Header />
@@ -22,6 +27,7 @@ function App() {
         <Route path='/shopPage' element={<ShopPage />} />
         <Route path='/coffeePage' element={<CoffeePage />} />
         <Route path='/coffeePage/:coffeeId' element={<CoffeeDetailPage />} />
+        <Route path='/shopPage/:shopId' element={<ShopDetailPage />} />
       </Routes>
     </div>
   );

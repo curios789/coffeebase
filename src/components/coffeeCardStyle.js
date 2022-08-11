@@ -14,7 +14,6 @@ export function regionColor(region) {
 }
 
 export const CoffeeDetailCard = styled.div`
-    border: 1px solid black;
     margin-top: 2em;
     .header {
         font-size: 18px;

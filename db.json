@@ -42,10 +42,45 @@
     ],
     "COMMENTS": [
         {
-            "comment_id": 0,
-            "coffee_id": 2,
+            "id": 0,
+            "coffee_id": 0,
+            "title": "This Coffee Is Amazing!",
+            "author": "David Umstot",
+            "text": "This is a test comment.",
+            "rating": 5,
+            "datetime": "2017-06-17T03:33Z"
+        },
+        {
+            "id": 1,
+            "coffee_id": 0,
             "author": "David Umstot",
             "text": "This is a test comment."
+        }
+    ],
+    "SHOPS": [
+        {
+            "id": 0,
+            "name": "Broad Street Coffee Company",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "address": "5635 Broad St, Greendale, WI 53129",
+            "open": "06:00",
+            "close": "15:00",
+            "brewing": [
+                0,
+                3
+            ]
+        },
+        {
+            "id": 1,
+            "name": "David's House",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "address": "10219 W Grange Ave",
+            "open": "06:00",
+            "close": "15:00",
+            "brewing": [
+                0,
+                3
+            ]
         }
     ]
 }
