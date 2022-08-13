@@ -3,7 +3,7 @@ import { Row, Col } from '../../components/grid'
 import { faCommentDots, faStar, faStarHalf } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import profile_place from '../../assets/profile_place.png';
-import { width } from "@mui/system";
+
 const StyledComment = styled.div`
     margin: 1em;
     display: 'flex';

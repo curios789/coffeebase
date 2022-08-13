@@ -8,9 +8,7 @@ import CommentCard from "./CommentCard";
 
 export const CoffeeCommentList = () => {
     const { coffeeId } = useParams();
-    console.log(coffeeId);
     const comments = useSelector(selectCommentsByCoffeeId(coffeeId));
-    console.log(comments);
     return (
         comments.map(comment => {
             return (

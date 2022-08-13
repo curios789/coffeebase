@@ -47,11 +47,16 @@ export const selectAllCoffees = (state) => {
 
 // DISPLAY A SPECIFIC COFFEE
 export const selectCoffeeById = (id) => (state) => {
-    return state.coffees.coffeesArray.find(
+    return state.coffees.coffeesArray.filter(
         (coffee) => coffee.id === parseInt(id)
     );
 };
 
+export const selectCoffeesByShop = (brewing) => (state) => {
+    return state.coffees.coffeesArray.filter(
+        (coffee) => brewing.includes(coffee.id)
+    )
+}
 // DISPLAY COFFEES BY GROWING REGION
 export const selectCoffeeByRegion = (region) => (state) => {
     return state.coffees.coffeesArray.filter(

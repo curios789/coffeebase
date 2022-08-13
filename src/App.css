@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,800;1,800&display=swap');
+
 @-ms-viewport {
   width: device-width;
 }
@@ -6,6 +8,11 @@ html {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   -ms-overflow-style: scrollbar;
+}
+
+@font-face {
+  font-family: "NUNITO XBOLD";
+  src: url('assets/fonts/NunitoSans-ExtraBold.ttf');
 }
 
 *,

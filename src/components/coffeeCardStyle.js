@@ -1,5 +1,13 @@
 import styled from "styled-components";
 import { Row } from "./grid";
+import latinamericaimage from "../assets/latinamericabg.webp";
+
+export function regionBg(region) {
+    switch (region) {
+        case "latin-america":
+            return "blah";
+    }
+}
 export function regionColor(region) {
     switch (region) {
         case "latin-america":
@@ -15,9 +23,12 @@ export function regionColor(region) {
 
 export const CoffeeDetailCard = styled.div`
     margin-top: 2em;
+    background-image: ${(props) => regionBg(props.region)};
     .header {
         font-size: 18px;
+        font-family: "Nunito Sans";
     }
+    h2 { font-weight: 800}
     .content {
         padding: 15px;
         font-family: "Alegreya Sans SC";

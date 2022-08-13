@@ -7,7 +7,8 @@ import { Form, Formik, Field } from 'formik';
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesRight } from "@fortawesome/free-solid-svg-icons";
-import CoffeeList from "../features/coffees/coffeeList";
+import CoffeeList, { RegionList } from "../features/coffees/coffeeList";
+import { Link, useParams } from "react-router-dom";
 
 const buttonAnimation = keyframes`
 from {
@@ -132,6 +133,7 @@ const CoffeeSearch = () => {
 }
 
 const CoffeePage = () => {
+    const { region } = useParams();
     return (
         <>
             <CoffeeSearchBar>
@@ -140,41 +142,59 @@ const CoffeePage = () => {
                     <CoffeeSearch />
                 </Col>
             </CoffeeSearchBar>
-            <Container>
-                <Row style={{ border: "5px solid black" }}>
-                    <Col md="4">
-                        <CoffeeCard color="rgba(105, 199, 183, .8)" style={{ backgroundImage: `url(${require('../assets/latinamericabg.webp')})` }}>
-                            <img src={`${require('../assets/latinamerica.webp')}`} alt="Latin American Coffees" />
-                            <h3>Latin America</h3>
-                            <CoffeeCardText>
-                                Latin American coffees are mild-bodied and well balanced. They often contain flavor notes of nuts and chocolate.
-                            </CoffeeCardText>
-                            <button>Find Coffees <FontAwesomeIcon icon={faAnglesRight} /></button>
-                        </CoffeeCard>
-                    </Col>
-                    <Col md="4">
-                        <CoffeeCard color="yellow" style={{ backgroundImage: `url(${require('../assets/southeastasiabg.webp')})` }}>
-                            <img src={`${require('../assets/southeastasia.webp')}`} alt="Southeast Asian Coffees" />
-                            <h3>Southeast Asia</h3>
-                            <CoffeeCardText>
-                                Southeast Asian coffees are known for citrus and floral flavor notes. They are often low in acidity with a medium body.
-                            </CoffeeCardText>
-                            <button>Find Coffees <FontAwesomeIcon icon={faAnglesRight} /></button>
-                        </CoffeeCard>
-                    </Col>
-                    <Col md="4">
-                        <CoffeeCard color="red" style={{ backgroundImage: `url(${require('../assets/africabg.webp')})` }}>
-                            <img src={`${require('../assets/africa.webp')}`} alt="African Coffees" />
-                            <h3>Africa</h3>
-                            <CoffeeCardText>
-                                African coffees are often sweet and fruity, with light floral notes. They tend to have a fuller body than most other regions.
-                            </CoffeeCardText>
-                            <button>Find Coffees <FontAwesomeIcon icon={faAnglesRight} /></button>
-                        </CoffeeCard>
-                    </Col>
-                </Row>
-                <CoffeeList type="recent" />
-            </Container>
+            <Row style={{ border: "5px solid black" }}>
+                <Col md="4">
+                    <CoffeeCard color="rgba(105, 199, 183, .8)" style={{ backgroundImage: `url(${require('../assets/latinamericabg.webp')})` }}>
+                        <img src={`${require('../assets/latinamerica.webp')}`} alt="Latin American Coffees" />
+                        <h3>Latin America</h3>
+                        <CoffeeCardText>
+                            Latin American coffees are mild-bodied and well balanced. They often contain flavor notes of nuts and chocolate.
+                        </CoffeeCardText>
+                        {region ?
+                            <Link to='./../Latin-America'><button>Find Coffees <FontAwesomeIcon icon={faAnglesRight} /></button></Link>
+                            :
+                            <Link to='Latin-America'><button>Find Coffees <FontAwesomeIcon icon={faAnglesRight} /></button></Link>
+                        }
+                    </CoffeeCard>
+                </Col>
+                <Col md="4">
+                    <CoffeeCard color="yellow" style={{ backgroundImage: `url(${require('../assets/southeastasiabg.webp')})` }}>
+                        <img src={`${require('../assets/southeastasia.webp')}`} alt="Southeast Asian Coffees" />
+                        <h3>Southeast Asia</h3>
+                        <CoffeeCardText>
+                            Southeast Asian coffees are known for citrus and floral flavor notes. They are often low in acidity with a medium body.
+                        </CoffeeCardText>
+                        {region ?
+                            <Link to='./../Southeast-Asia'><button>Find Coffees <FontAwesomeIcon icon={faAnglesRight} /></button></Link>
+                            :
+                            <Link to='Southeast-Asia'><button>Find Coffees <FontAwesomeIcon icon={faAnglesRight} /></button></Link>
+                        }
+                    </CoffeeCard>
+                </Col>
+                <Col md="4">
+                    <CoffeeCard color="red" style={{ backgroundImage: `url(${require('../assets/africabg.webp')})` }}>
+                        <img src={`${require('../assets/africa.webp')}`} alt="African Coffees" />
+                        <h3>Africa</h3>
+                        <CoffeeCardText>
+                            African coffees are often sweet and fruity, with light floral notes. They tend to have a fuller body than most other regions.
+                        </CoffeeCardText>
+                        {region ?
+                            <Link to='./../Africa'><button>Find Coffees <FontAwesomeIcon icon={faAnglesRight} /></button></Link>
+                            :
+                            <Link to='Africa'><button>Find Coffees <FontAwesomeIcon icon={faAnglesRight} /></button></Link>
+                        }
+                    </CoffeeCard>
+                </Col>
+            </Row>
+            {region ?
+                <Container>
+                    <RegionList region={region} />
+                </Container>
+                :
+                <Container>
+                    <CoffeeList type="recent" />
+                </Container>
+            }
         </>
     );
 }

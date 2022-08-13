@@ -3,6 +3,9 @@ import { Row, Col } from "../../components/grid";
 import { CoffeeDetailCard, CoffeeAttribute, CoffeeCardFooter } from "../../components/coffeeCardStyle";
 import { faCommentDots, faStar, faStarHalf } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useSelector } from 'react-redux';
+import { selectCommentsByCoffeeId } from "../comments/commentSlice";
+import latinamericabg from "../../assets/latinamericabg.webp";
 
 function ratingFunction(rating) {
     let stars = [];
@@ -13,6 +16,7 @@ function ratingFunction(rating) {
 }
 
 const CoffeeCard = ({ coffee: { id, name, description, region, acidity, body, flavor, rating } }) => {
+    const comments = useSelector(selectCommentsByCoffeeId(id));
     return (
         <CoffeeDetailCard key={id}>
             <Row className="header">
@@ -41,8 +45,8 @@ const CoffeeCard = ({ coffee: { id, name, description, region, acidity, body, fl
             </Row>
             <CoffeeCardFooter>
                 <Col md='4'>{ratingFunction(rating)}</Col>
-                <Col md='4'><FontAwesomeIcon icon={faCommentDots} /> Comment Number</Col>
-                <Col md='4'><Link to={`${id}`}><button>View Coffee</button></Link></Col>
+                <Col md='4'><FontAwesomeIcon icon={faCommentDots} style={{ marginRight: 10 }} /> {comments.length}</Col>
+                <Col md='4'><Link to={`../CoffeeDetail/${id}`}><button>View Coffee</button></Link></Col>
             </CoffeeCardFooter>
         </CoffeeDetailCard>
     )

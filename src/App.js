@@ -26,7 +26,8 @@ function App() {
         <Route path='/' element={<HomePage />} />
         <Route path='/shopPage' element={<ShopPage />} />
         <Route path='/coffeePage' element={<CoffeePage />} />
-        <Route path='/coffeePage/:coffeeId' element={<CoffeeDetailPage />} />
+        <Route path='/coffeePage/:region' element={<CoffeePage />} />
+        <Route path='/coffeeDetail/:coffeeId' element={<CoffeeDetailPage />} />
         <Route path='/shopPage/:shopId' element={<ShopDetailPage />} />
       </Routes>
     </div>

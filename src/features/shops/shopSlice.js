@@ -40,13 +40,16 @@ const shopSlice = createSlice({
 export const shopsReducer = shopSlice.reducer;
 
 export const selectShopById = (shopId) => (state) => {
-    console.log("THIS IS THE SLICE: " + shopId)
-    console.log(state.shops.shopsArray);
-    console.log(state.shops.shopsArray.find(
+    return (state.shops.shopsArray.filter(
         (shop) => shop.id === parseInt(shopId)
     ));
 };
 
+export const selectShopsByCoffeeId = (coffeeId) => (state) => {
+    return (state.shops.shopsArray.filter(
+        (shop) => shop.brewing.includes(parseInt(coffeeId))
+    ))
+}
 export const selectAllShops = (state) => {
     return state.shops.shopsArray;
 }
