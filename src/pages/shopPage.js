@@ -1,16 +1,17 @@
-import Header from "../components/Header";
 import React from "react";
 import { Row, Col, Container } from "../components/grid";
-import { useRef, useState, useEffect } from "react";
-import { Card, CardHeader } from "../styled-components/Card";
 import { selectAllShops } from "../features/shops/shopSlice";
 import { useSelector } from "react-redux";
 import CoffeeMap from "../features/map/CoffeeMap"
+import ShopCard from "../features/shops/ShopCard";
 
 
 
 const ShopPage = () => {
     const shops = useSelector(selectAllShops);
+    const display = shops.map((shop) => {
+        return <ShopCard shop={shop} key={shop.id} />
+    });
     return (
         <>
             <Row>
@@ -19,15 +20,7 @@ const ShopPage = () => {
                 </Col>
             </Row>
             <Container>
-                <Row>
-                    <Col>
-                        <Card>
-                            <CardHeader>
-                                Find Your Favorite Coffee Shop!
-                            </CardHeader>
-                        </Card>
-                    </Col>
-                </Row>
+                {display}
             </Container>
         </>
     )

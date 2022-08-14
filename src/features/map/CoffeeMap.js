@@ -9,12 +9,11 @@ const CoffeeMap = ({ shops }) => {
     const [lat, setLat] = useState(0);
     const [lng, setLng] = useState(0);
     const [zoom, setZoom] = useState(12);
-    console.log(shops);
-    navigator.geolocation.getCurrentPosition(function (position) {
-        setLat(position.coords.latitude);
-        setLng(position.coords.longitude);
-    });
     useEffect(() => {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            setLat(position.coords.latitude);
+            setLng(position.coords.longitude);
+        });
         Geocode.setApiKey("AIzaSyBy38H_iBfLHwX_mNHUX1-uzJVXgln2SOM");
         const map = new mapboxgl.Map({
             container: mapContainer.current,
@@ -23,12 +22,10 @@ const CoffeeMap = ({ shops }) => {
             zoom: zoom
         });
         shops.map((shop) => {
-            console.log(shop.id);
             const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(`<a href='shopPage/${shop.id}'>${shop.name}</a>`);
             Geocode.fromAddress(shop.address).then(
                 (response) => {
                     const { lat, lng } = response.results[0].geometry.location;
-                    console.log(lat, lng);
                     const marker = new mapboxgl.Marker().setLngLat([lng, lat]).addTo(map).setPopup(popup)
                 },
                 error => {

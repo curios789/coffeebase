@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import './App.css';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import { Row, Col, Container } from './components/grid';
 import { Routes, Route } from 'react-router-dom';
 import ShopPage from './pages/shopPage';
@@ -30,6 +31,7 @@ function App() {
         <Route path='/coffeeDetail/:coffeeId' element={<CoffeeDetailPage />} />
         <Route path='/shopPage/:shopId' element={<ShopDetailPage />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

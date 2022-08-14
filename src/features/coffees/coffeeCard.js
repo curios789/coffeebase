@@ -5,7 +5,6 @@ import { faCommentDots, faStar, faStarHalf } from "@fortawesome/free-solid-svg-i
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSelector } from 'react-redux';
 import { selectCommentsByCoffeeId } from "../comments/commentSlice";
-import latinamericabg from "../../assets/latinamericabg.webp";
 
 function ratingFunction(rating) {
     let stars = [];

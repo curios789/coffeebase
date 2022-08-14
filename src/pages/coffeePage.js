@@ -18,16 +18,27 @@ to {
     background: rgba(255,255,255,0.4);
 }`;
 
+const cardAnimation = keyframes`
+    from {
+      transform: translateX(0%);
+    }
+  
+    to {
+      transform: translateX(100%);
+    }
+  `
+
 const CoffeeCard = styled(Card)`
     background-color: ${(props) => props.color};
     background-opacity: .5;
     background-size: cover;
     margin: 0;
-    min-height: 400px;
+    min-height: 450px;
     box-shadow: none;
     border: none;
     border-right: 3px solid black;
     padding: 20px;
+    align-items: stretch;
     h3 {
         margin-bottom: 0;
         font-family: "Alegreya Sans SC";

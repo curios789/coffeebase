@@ -28,6 +28,15 @@ margin: 1rem;
 padding: 1rem;
 text-align: left;
 `
+
+export const formatDate = (date) => {
+    return new Intl.DateTimeFormat('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: '2-digit'
+    }).format(new Date(Date.parse(date)));
+};
+
 const CommentCard = ({ comment }) => {
     function ratingFunction(rating) {
         let stars = [];
@@ -44,7 +53,7 @@ const CommentCard = ({ comment }) => {
             <Col md='11'>
                 <StyledComment>
                     <CommentHeader>
-                        <Col md='8'><h4>Posted by {comment.author} at {comment.datetime}</h4></Col>
+                        <Col md='8'><h4>Posted by {comment.author} on {formatDate(comment.datetime)}</h4></Col>
                         <Col md='4' className='rating'>
                             {ratingFunction(comment.rating)}
                         </Col>

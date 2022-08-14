@@ -1,6 +1,7 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Row } from "./grid";
 import latinamericaimage from "../assets/latinamericabg.webp";
+import { merge, fadeIn, slideInLeft, lightSpeedIn } from "react-animations";
 
 export function regionBg(region) {
     switch (region) {
@@ -20,10 +21,11 @@ export function regionColor(region) {
             return "#d8b796";
     }
 }
-
+const fadeInAnimation = keyframes`${slideInLeft}`;
 export const CoffeeDetailCard = styled.div`
     margin-top: 2em;
     background-image: ${(props) => regionBg(props.region)};
+    animation: 1s ${fadeInAnimation};
     .header {
         font-size: 18px;
         font-family: "Nunito Sans";

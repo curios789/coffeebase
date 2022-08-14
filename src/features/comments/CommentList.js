@@ -1,14 +1,8 @@
-import styled from "styled-components";
-import { selectCommentsByCoffeeId } from "./commentSlice";
-import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import { Row, Col, Container } from '../../components/grid';
+import { Row, Col } from '../../components/grid';
 import CommentCard from "./CommentCard";
 
 
-export const CoffeeCommentList = () => {
-    const { coffeeId } = useParams();
-    const comments = useSelector(selectCommentsByCoffeeId(coffeeId));
+export const CommentList = ({ comments }) => {
     return (
         comments.map(comment => {
             return (
@@ -21,12 +15,4 @@ export const CoffeeCommentList = () => {
                 </>
             );
         }));
-}
-
-export const ShopCommentList = ({ shop_id }) => {
-    return (
-        <>
-            test
-        </>
-    )
 }

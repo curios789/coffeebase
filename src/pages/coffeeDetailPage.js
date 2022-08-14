@@ -6,12 +6,14 @@ import { Row, Col, Container } from '../components/grid';
 import "@fontsource/alegreya-sans-sc";
 import "@fontsource/aleo";
 import { CoffeeDetailCard, CoffeeAttribute } from "../components/coffeeCardStyle";
-import { CoffeeCommentList } from "../features/comments/CommentList";
+import { CommentList } from "../features/comments/CommentList";
 import latinamericabg from "../assets/latinamericabg.webp";
 import africabg from "../assets/africabg.webp";
 import southeastasiabg from "../assets/southeastasiabg.webp";
 import CoffeeMap from "../features/map/CoffeeMap";
 import { selectShopsByCoffeeId } from "../features/shops/shopSlice";
+import { selectCommentsByCoffeeId } from "../features/comments/commentSlice";
+import CommentForm from "../features/comments/CommentForm";
 
 
 const CoffeeDetailPage = () => {
@@ -29,6 +31,7 @@ const CoffeeDetailPage = () => {
     const { coffeeId } = useParams();
     const coffees = useSelector(selectCoffeeById(coffeeId));
     const shops = useSelector(selectShopsByCoffeeId(coffeeId));
+    const comments = useSelector(selectCommentsByCoffeeId(coffeeId));
     const display = coffees.map((coffee) => {
         return (
             <>
@@ -62,11 +65,13 @@ const CoffeeDetailPage = () => {
                         </CoffeeDetailCard>
                     </Col>
                 </Row>
+                <h1 style={{ fontFamily: "Nunito Sans" }}>Who's Brewing?</h1>
                 <CoffeeMap shops={shops} />
+                <CommentForm type="coffee" id={coffeeId} />
                 <Container>
                     <Row>
                         <Col>
-                            <CoffeeCommentList coffee_id={coffeeId} />
+                            <CommentList comments={comments} />
                         </Col>
                     </Row>
                 </Container>
