@@ -1,133 +1,141 @@
 {
-    "COFFEES": [
-        {
-            "id": 0,
-            "name": "Test Coffee",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            "region": "Latin America",
-            "flavor": [
-                "nut",
-                "chocolate"
-            ],
-            "body": "light",
-            "acidity": "high",
-            "rating": 5
-        },
-        {
-            "id": 1,
-            "name": "Test Coffee 2",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            "region": "Africa",
-            "flavor": [
-                "berry",
-                "chocolate"
-            ],
-            "body": "heavy",
-            "acidity": "low",
-            "rating": 3
-        },
-        {
-            "id": 2,
-            "name": "Test Coffee",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            "region": "Latin America",
-            "flavor": [
-                "nut",
-                "chocolate"
-            ],
-            "body": "light",
-            "acidity": "high",
-            "rating": 2
-        },
-        {
-            "id": 3,
-            "name": "Test Coffee",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            "region": "Southeast Asia",
-            "flavor": [
-                "nut",
-                "chocolate"
-            ],
-            "body": "light",
-            "acidity": "high",
-            "rating": 2
-        }
-    ],
-    "COMMENTS": [
-        {
-            "id": 0,
-            "coffee_id": 0,
-            "title": "This Coffee Is Amazing!",
-            "author": "David Umstot",
-            "text": "This is a test comment.",
-            "rating": 5,
-            "datetime": "2017-06-17T03:33Z"
-        },
-        {
-            "id": 1,
-            "coffee_id": 0,
-            "author": "David Umstot",
-            "text": "This is a test comment.",
-            "datetime": "2022-08-14T19:25:58.890Z"
-        },
-        {
-            "id": 2,
-            "shop_id": 0,
-            "author": "David Umstot",
-            "text": "This is a test comment.",
-            "datetime": "2022-08-14T19:25:58.890Z"
-        },
-        {
-            "id": 3,
-            "shop_id": 0,
-            "rating": "5",
-            "author": "Test Comment",
-            "text": "Testing",
-            "datetime": "2022-08-14T19:25:58.890Z"
-        },
-        {
-            "shop_id": 0,
-            "rating": "4",
-            "author": "Test 3",
-            "text": "Testing again",
-            "datetime": "2022-08-14T19:27:45.107Z",
-            "id": 4
-        },
-        {
-            "coffee_id": 1,
-            "rating": "3",
-            "author": "Test Comment",
-            "text": "Test",
-            "datetime": "2022-08-14T19:50:09.246Z",
-            "id": 5
-        }
-    ],
-    "SHOPS": [
-        {
-            "id": 0,
-            "name": "Broad Street Coffee Company",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            "address": "5635 Broad St, Greendale, WI 53129",
-            "open": "13:00",
-            "close": "15:00",
-            "rating": 5,
-            "brewing": [
-                1,
-                3
-            ]
-        },
-        {
-            "id": 1,
-            "name": "David's House",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            "address": "10219 W Grange Ave",
-            "open": "06:00",
-            "close": "15:00",
-            "rating": 4,
-            "brewing": [
-                0,
-                3
-            ]
-        }
-    ]
+  "COFFEES": [
+    {
+      "id": 0,
+      "name": "Test Coffee",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "region": "Latin America",
+      "flavor": [
+        "nut",
+        "chocolate"
+      ],
+      "body": "light",
+      "acidity": "high",
+      "rating": 5
+    },
+    {
+      "id": 1,
+      "name": "Test Coffee 2",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "region": "Africa",
+      "flavor": [
+        "berry",
+        "chocolate"
+      ],
+      "body": "heavy",
+      "acidity": "low",
+      "rating": 3
+    },
+    {
+      "id": 2,
+      "name": "Test Coffee",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "region": "Latin America",
+      "flavor": [
+        "nut",
+        "chocolate"
+      ],
+      "body": "light",
+      "acidity": "high",
+      "rating": 2
+    },
+    {
+      "id": 3,
+      "name": "Test Coffee",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "region": "Southeast Asia",
+      "flavor": [
+        "nut",
+        "chocolate"
+      ],
+      "body": "light",
+      "acidity": "high",
+      "rating": 2
+    }
+  ],
+  "COMMENTS": [
+    {
+      "id": 0,
+      "coffee_id": 0,
+      "title": "This Coffee Is Amazing!",
+      "author": "David Umstot",
+      "text": "This is a test comment.",
+      "rating": 5,
+      "datetime": "2017-06-17T03:33Z"
+    },
+    {
+      "id": 1,
+      "coffee_id": 0,
+      "author": "David Umstot",
+      "text": "This is a test comment.",
+      "datetime": "2022-08-14T19:25:58.890Z"
+    },
+    {
+      "id": 2,
+      "shop_id": 0,
+      "author": "David Umstot",
+      "text": "This is a test comment.",
+      "datetime": "2022-08-14T19:25:58.890Z"
+    },
+    {
+      "id": 3,
+      "shop_id": 0,
+      "rating": "5",
+      "author": "Test Comment",
+      "text": "Testing",
+      "datetime": "2022-08-14T19:25:58.890Z"
+    },
+    {
+      "shop_id": 0,
+      "rating": "4",
+      "author": "Test 3",
+      "text": "Testing again",
+      "datetime": "2022-08-14T19:27:45.107Z",
+      "id": 4
+    },
+    {
+      "coffee_id": 1,
+      "rating": "3",
+      "author": "Test Comment",
+      "text": "Test",
+      "datetime": "2022-08-14T19:50:09.246Z",
+      "id": 5
+    },
+    {
+      "shop_id": 0,
+      "rating": "5",
+      "author": "Test Comment",
+      "text": "Test comment",
+      "datetime": "2022-08-15T02:51:33.842Z",
+      "id": 6
+    }
+  ],
+  "SHOPS": [
+    {
+      "id": 0,
+      "name": "Broad Street Coffee Company",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "address": "5635 Broad St, Greendale, WI 53129",
+      "open": "13:00",
+      "close": "15:00",
+      "rating": 5,
+      "brewing": [
+        1,
+        3
+      ]
+    },
+    {
+      "id": 1,
+      "name": "David's House",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "address": "10219 W Grange Ave",
+      "open": "06:00",
+      "close": "15:00",
+      "rating": 4,
+      "brewing": [
+        0,
+        3
+      ]
+    }
+  ]
 }

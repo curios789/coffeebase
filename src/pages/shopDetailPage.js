@@ -27,6 +27,9 @@ const ShopDetailCard = styled(Row)`
     p {
         background-color: rgba(255,255,255,0.4);
         padding:3em;
+        font-family: "Aleo";
+        font-size: 1.2rem;
+        line-height: 1.7rem;
     }
 `
 const NowBrewing = styled(Container)`

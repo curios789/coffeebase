@@ -55,7 +55,7 @@ const CommentForm = ({ type, id }) => {
                 rating: values.rating,
                 author: values.author,
                 text: values.commentText,
-                date: new Date(Date.now()).toISOString()
+                datetime: new Date(Date.now()).toISOString()
             }
             // IF WE'RE COMING FROM A COFFEE PAGE
         } else {
@@ -64,7 +64,7 @@ const CommentForm = ({ type, id }) => {
                 rating: values.rating,
                 author: values.author,
                 text: values.commentText,
-                date: new Date(Date.now()).toISOString()
+                datetime: new Date(Date.now()).toISOString()
             }
         }
         dispatch(postComment(comment));

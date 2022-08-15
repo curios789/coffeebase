@@ -35,7 +35,7 @@ const Logo = styled.div`
     text-align: center;
     padding: 1em;
     img {
-        height: 100px;
+        height: 200px;
     }
 `
 const LoginLinks = styled(Col)`
@@ -45,7 +45,17 @@ const pages = [
     { name: 'Find a Coffee', path: '/coffeePage' }, { name: 'Find a Shop', path: '/shopPage' }
 ];
 const Header = () => {
-    const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+    const [loggedIn, setLoggedIn] = useState(false)
+    let settings = [];
+    if (loggedIn) {
+        settings = [
+            { name: 'Profile', path: '/ProfilePage' }, { name: 'Account', path: '/AccountPage' }, { name: 'Dashboard', path: '/DashboardPage' }, { name: 'Logout', path: '#' }
+        ];
+    } else {
+        settings = [
+            { name: 'Login', path: '/LoginPage' }, { name: 'Sign Up', path: '/SignUpPage' }
+        ];
+    }
     return (
         <SiteHeader>
             <Logo><img src={siteLogo} /></Logo>
@@ -54,7 +64,9 @@ const Header = () => {
                     {pages.map((page, index) => <NavLink key={index} to={page.path}>{page.name}</NavLink>)}
                 </Col>
                 <Col md="6"></Col>
-                <LoginLinks md='3'><a href='#'>Login</a> <a href='#'>Register</a><a href="#">My Account</a></LoginLinks>
+                <LoginLinks md='3'>
+                    {settings.map((page, index) => <NavLink key={index} to={page.path}>{page.name}</NavLink>)}
+                </LoginLinks>
             </Navbar>
         </SiteHeader>
     );

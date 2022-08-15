@@ -13,6 +13,8 @@ import ShopDetailPage from './pages/shopDetailPage';
 import { fetchCoffees } from './features/coffees/coffeeSlice';
 import { fetchShops } from './features/shops/shopSlice';
 import { fetchComments } from './features/comments/commentSlice';
+import AccountPage from './pages/AccountPage';
+import LoginPage from './pages/LoginPage';
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -30,6 +32,8 @@ function App() {
         <Route path='/coffeePage/:region' element={<CoffeePage />} />
         <Route path='/coffeeDetail/:coffeeId' element={<CoffeeDetailPage />} />
         <Route path='/shopPage/:shopId' element={<ShopDetailPage />} />
+        <Route path='/AccountPage' element={<AccountPage />} />
+        <Route path='/LoginPage' element={<LoginPage />} />
       </Routes>
       <Footer />
     </div>

@@ -68,31 +68,61 @@ const CoffeeCardText = styled(CardText)`
     font-family: "aleo";
 `
 const CoffeeSearchBar = styled(Row)`
+    display: flex;
     background: #edf8c0;
     border-top:  2px solid #cfa43d;
     margin-bottom: 1em;
     text-align: left;
+    align-items: center;
     h4 {
         text-align: center;
-        font-family: "Alegreya Sans SC"
+        font-family: "Nunito Sans";
+        font-size: 1.2rem;
     }
     label {
         font-family: "Alegreya Sans SC";
         padding: 0 1em 0 1em;
     }
+    select {
+        font-family: "Alegreya Sans SC";
+        font-size: 1.2em;
+        border: 1px solid black;
+        border-radius: 3px;
+        padding: 4px;
+    }
+    button {
+        background: limegreen;
+        padding: 10px;
+        font-family: "Alegreya Sans SC";
+        font-weight: bold;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        transition: background .4s;
+        :hover {
+            background: green;
+        }
+    }
 `
 const TastingNotes = styled.div`
-   max-width: 300px; 
-   border: 1px solid black;
-   background: white;
-   text-align: center;
-   h4 {
+    position: absolute;
+    left: 30vw;
+    z-index: 9999;
+    max-width: 300px; 
+    border: 1px solid black;
+    background: white;
+    text-align: center;
+    h4 {
         margin: 10px;
         border-bottom: 1px solid #ccc;
-   }
+    }
 `
 const TastingNotesToggle = styled.button`
     margin: 0 1em 0 1em;
+    background-color: #278779 !important;
+    &:hover {
+        background-color: #7dcce6 !important;
+    }
 `
 const CoffeeSearch = () => {
     const [showNotes, setShowNotes] = useState(false);
@@ -148,7 +178,7 @@ const CoffeePage = () => {
     return (
         <>
             <CoffeeSearchBar>
-                <Col md='2'><h4>Coffee Search</h4></Col>
+                <Col md='2'><h4>COFFEE SEARCH</h4></Col>
                 <Col md='10'>
                     <CoffeeSearch />
                 </Col>
