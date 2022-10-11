@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { Formik, Form, Field } from "formik";
 import { Row, Col, Container } from '../components/grid';
+import { useDispatch, useSelector } from "react-redux";
+import { login, tokenSelector } from "../features/users/userSlice";
 
 const LoginContainer = styled(Container)`
     display: flex;
@@ -47,9 +49,15 @@ const Button = styled.button`
         }
 `
 const LoginPage = () => {
-    const handleLogin = (values) => {
-
+    const dispatch = useDispatch();
+    async function handleLogin(values) {
+        const loginScript = await dispatch(login(values));
+        if (loginScript.payload.success === true) {
+            window.location.assign("../DashBoardPage");
+        }
     }
+    //   const token = useSelector(tokenSelector);
+    //   console.log(token);
     return (
         <LoginContainer>
             <LoginCard>

@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { selectShopById } from "../features/shops/shopSlice";
-import { selectCoffeesByShop } from '../features/coffees/coffeeSlice';
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { selectShopById, fetchOneShop } from "../features/shops/shopSlice";
+import { fetchCoffees, selectCoffeesByShop } from '../features/coffees/coffeeSlice';
 import { selectCommentsByShopId } from "../features/comments/commentSlice";
 import CoffeeCard from "../features/coffees/coffeeCard";
 import styled from "styled-components";
@@ -9,6 +10,8 @@ import { Row, Container, Col } from "../components/grid";
 import { CommentList } from "../features/comments/CommentList";
 import CommentForm from "../features/comments/CommentForm";
 import shopBg from '../assets/default_shop.png'
+import { useLayoutEffect } from "react";
+import { formatTime } from "../utils/formatDate";
 const ShopDetailCard = styled(Row)`
     background-image: url(${shopBg});
     background-size: cover;
@@ -50,30 +53,25 @@ const NowBrewing = styled(Container)`
     }
 `
 const ShopDetailPage = () => {
-    /* Initialize brewing as an empty array so we can use it globally outside of the map function */
-    let brewing = [];
     /* Shop ID comes from the URL params */
     const { shopId } = useParams();
+    const [theShop, setShop] = useState(shopId);
+    /*    const dispatch = useDispatch();
+        useLayoutEffect(() => {
+            const { shopId } = params();
+            console.log("TEST CASE (PARAM) -" + shopId);
+            dispatch(fetchOneShop(shopId));
+        }, []);*/
+    const isLoading = useSelector((state) => state.shops.isLoading);
+    const errMsg = useSelector((state) => state.shops.errMsg);
     /* Get the current shop */
     const shop = useSelector(selectShopById(shopId));
+    console.log(shop);
     /* Get the comments for this shop */
     const comments = useSelector(selectCommentsByShopId(shopId));
-
-    /* DISPLAY THE SHOP INFO */
-    const display = shop.map(shop => {
-        // We need to push the brewing array globally.
-        brewing = shop.brewing;
-        return (
-            <ShopDetailCard>
-                <h1>{shop.name}</h1>
-                <h4>{shop.address}</h4>
-                <p>{shop.description}</p>
-            </ShopDetailCard>
-        )
-    });
-
-    // now brewing - select coffees from brewing array that we exported from the previous map function
-    const coffees = useSelector(selectCoffeesByShop(brewing));
+    const coffees = useSelector(selectCoffeesByShop(shop.brewing));
+    const d = new Date();
+    const hours = shop.hours[d.getDay()];
     const coffee = coffees.map((coffee) => {
         return (
             // Return a CoffeeCard for each coffee - we're going to put these two to a row here.
@@ -82,10 +80,24 @@ const ShopDetailPage = () => {
             </Col>);
     })
 
-    // MAIN RENDER FUNCTION - PUT ALL THE PARTS TOGETHER
+    /* DISPLAY THE SHOP INFO */
+    // We need to push the brewing array globally.
+    if (isLoading) {
+        return ("LOADING...")
+    }
+    if (errMsg) {
+        console.log(errMsg);
+        return ("ERROR");
+    }
+    console.log(isLoading);
     return (
         <>
-            {display}
+            <ShopDetailCard>
+                <h1>{shop.name}</h1>
+                <h4>{shop.address}</h4>
+                <h5>Open: {formatTime(hours.open)} Close: {formatTime(hours.close)}</h5>
+                <p>{shop.description}</p>
+            </ShopDetailCard>
             <NowBrewing>
                 <Row>
                     <h1><em>Now Brewing...</em></h1>

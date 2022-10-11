@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom'
 import siteLogo from '../assets/logo.png'
 import { Row, Col } from './grid';
+import { useSelector } from 'react-redux';
 
 const SiteHeader = styled.header`
     background-color: #c79b69;
@@ -45,11 +46,11 @@ const pages = [
     { name: 'Find a Coffee', path: '/coffeePage' }, { name: 'Find a Shop', path: '/shopPage' }
 ];
 const Header = () => {
-    const [loggedIn, setLoggedIn] = useState(false)
+    const token = useSelector((state) => state.user.token);
     let settings = [];
-    if (loggedIn) {
+    if (token) {
         settings = [
-            { name: 'Profile', path: '/ProfilePage' }, { name: 'Account', path: '/AccountPage' }, { name: 'Dashboard', path: '/DashboardPage' }, { name: 'Logout', path: '#' }
+            { name: 'Dashboard', path: '/Dashboard' }, { name: 'Logout', path: '#' }
         ];
     } else {
         settings = [

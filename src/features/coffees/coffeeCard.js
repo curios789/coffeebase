@@ -14,10 +14,10 @@ function ratingFunction(rating) {
     return stars;
 }
 
-const CoffeeCard = ({ coffee: { id, name, description, region, acidity, body, flavor, rating } }) => {
-    const comments = useSelector(selectCommentsByCoffeeId(id));
+const CoffeeCard = ({ coffee: { _id, name, description, region, acidity, body, flavor, rating } }) => {
+    const comments = useSelector(selectCommentsByCoffeeId(_id));
     return (
-        <CoffeeDetailCard key={id}>
+        <CoffeeDetailCard key={_id}>
             <Row className="header">
                 <Col>
                     <h2>{name}</h2>
@@ -45,7 +45,7 @@ const CoffeeCard = ({ coffee: { id, name, description, region, acidity, body, fl
             <CoffeeCardFooter>
                 <Col md='4'>{ratingFunction(rating)}</Col>
                 <Col md='4'><FontAwesomeIcon icon={faCommentDots} style={{ marginRight: 10 }} /> {comments.length}</Col>
-                <Col md='4'><Link to={`../CoffeeDetail/${id}`}><button>View Coffee</button></Link></Col>
+                <Col md='4'><Link to={`../CoffeeDetail/${_id}`}><button>View Coffee</button></Link></Col>
             </CoffeeCardFooter>
         </CoffeeDetailCard>
     )

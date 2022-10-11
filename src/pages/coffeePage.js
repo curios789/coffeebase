@@ -9,6 +9,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesRight } from "@fortawesome/free-solid-svg-icons";
 import CoffeeList, { RegionList } from "../features/coffees/coffeeList";
 import { Link, useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 
 const buttonAnimation = keyframes`
 from {
@@ -174,6 +176,7 @@ const CoffeeSearch = () => {
 }
 
 const CoffeePage = () => {
+    const dispatch = useDispatch();
     const { region } = useParams();
     return (
         <>

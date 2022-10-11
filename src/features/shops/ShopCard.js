@@ -63,7 +63,7 @@ const ShopCard = ({ shop }) => {
                 <Col md='3'>{open ? <span className='open'>OPEN</span> : <span className='closed'>CLOSED</span>}</Col>
                 <Col md='3'><FontAwesomeIcon icon={faCommentDots} style={{ marginRight: 10 }} /> {comments.length}</Col>
                 <Col md='3'>{ratingFunction(shop.rating)}</Col>
-                <Col md='3'><Link to={`${shop.id}`}><button>View Shop</button></Link></Col>
+                <Col md='3'><Link to={`${shop._id}`}><button>View Shop</button></Link></Col>
             </Row>
         </ShopCardItem>
     )

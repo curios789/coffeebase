@@ -22,7 +22,7 @@ const CoffeeMap = ({ shops }) => {
             zoom: zoom
         });
         shops.map((shop) => {
-            const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(`<a href='shopPage/${shop.id}'>${shop.name}</a>`);
+            const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(`<a href='../shopPage/${shop._id}'>${shop.name}</a>`);
             Geocode.fromAddress(shop.address).then(
                 (response) => {
                     const { lat, lng } = response.results[0].geometry.location;

@@ -6,12 +6,15 @@ import logger from 'morgan';
 import indexRouter from './routes/index.js';
 import usersRouter from './routes/users.js';
 import coffeeRouter from './routes/coffeeRouter.js';
+import shopRouter from './routes/shopRouter.js';
+import passport from 'passport';
 import { fileURLToPath } from 'url';
 import mongoose from 'mongoose';
 import config from './config.js';
 const url = config.mongoUrl;
 const connect = mongoose.connect(url);
 import cors from 'cors';
+import bodyParser from 'body-parser';
 connect.then(() => console.log('Connected correctly to server'),
   err => console.log(err)
 );
@@ -30,12 +33,15 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(passport.initialize());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/coffees', coffeeRouter);
+app.use('/shops', shopRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
